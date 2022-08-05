@@ -1,0 +1,13 @@
+import cv2
+cam = cv2.VideoCapture(1) # Videocapture is a function of opencv which allows capturing image , 1 indicates camera being used(webcam -1 or laptop camera -0)
+
+while cam.isOpened(): # While camera is ON or while Ture
+    ret, frame1 = cam.read() # reading image 'frame by frame' 
+    ret, frame2 = cam.read() # reading change in image and deciding region of interest or 'roi'
+    diff = cv2.absdiff(frame1, frame2) # detecting difference in both frames
+    gray = cv2.cvtColor(diff, cv2.COLOR_RGB2GRAY) # setting  grayscale parameters for image captured 
+    if cv2.waitKey(10) == ord('q'): # waiting till the next function is called
+        break
+    cv2.imshow('Camera', gray) # showing the change captured by camera
+    # For turning ON 'lights' use if loop or while loops
+    
