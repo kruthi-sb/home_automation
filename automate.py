@@ -40,7 +40,7 @@ def action(deviceName):
             GPIO.output(x, GPIO.LOW)
         time.sleep(5)
         for x in relay:
-            #GPIO.output(x, GPIO.HIGH)
+            GPIO.output(x, GPIO.HIGH)
     return render_template('index.html')
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
