@@ -19,19 +19,17 @@ def index():
 def action(deviceName):
     if deviceName != 'all_lights':
         if deviceName == 'living_room':
-            relay = living_room
-        elif deviceName == 'study_room':
-            relay = study_room
-        elif deviceName == 'kitchen':
-            relay = kitchen
-        else:
-            pass
+            num  = 38
+        if deviceName == 'study_room':
+            num  = 36
+        if deviceName == 'kitchen':
+            num  = 32
  
         GPIO.setmode(GPIO.BOARD)
-        GPIO.setup(relay, GPIO.OUT)
-        GPIO.output(relay, GPIO.LOW)
-        time.sleep(5)
-        GPIO.output(relay, GPIO.HIGH)
+        GPIO.setup(num, GPIO.OUT)
+        GPIO.output(num, GPIO.LOW)
+        #time.sleep(5)
+        #GPIO.output(num, GPIO.HIGH)
     else:
         relay = all_lights
         for x in relay:
@@ -42,5 +40,6 @@ def action(deviceName):
         for x in relay:
             GPIO.output(x, GPIO.HIGH)
     return render_template('index.html')
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
