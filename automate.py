@@ -30,16 +30,16 @@ def action(deviceName):
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(relay, GPIO.OUT)
         GPIO.output(relay, GPIO.LOW)
-        #time.sleep(5)
-        #GPIO.output(relay, GPIO.HIGH)
+        time.sleep(5)
+        GPIO.output(relay, GPIO.HIGH)
     else:
         relay = all_lights
         for x in relay:
             GPIO.setmode(GPIO.BOARD)
             GPIO.setup(x, GPIO.OUT)
             GPIO.output(x, GPIO.LOW)
-        #time.sleep(5)
-        #for x in relay:
+        time.sleep(5)
+        for x in relay:
             #GPIO.output(x, GPIO.HIGH)
     return render_template('index.html')
 if __name__ == "__main__":
