@@ -6,7 +6,7 @@ import numpy as np
 import datetime
 
 
-def detect():
+'''def detect():
     cam = cv2.VideoCapture(0) # Videocapture is a function of opencv which allows capturing image
     
     
@@ -18,7 +18,7 @@ def detect():
     cv2.waitKey(10000) # waiting till the next function is called
     print(np.all(gray==0))    
 
-    return gray
+    return gray'''
 
 
 living_room = 38 #stonewolf
@@ -81,14 +81,14 @@ def action(deviceName):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
-    detect()
+    '''detect()
     hour = int(datetime.datetime.now().hour)
     if np.all(gray==0) is False: #and hour>18
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(36, GPIO.OUT)
         GPIO.output(36, GPIO.LOW)
         time.sleep(10)
-        GPIO.output(36, GPIO.HIGH)
+        GPIO.output(36, GPIO.HIGH)'''
 
 
 
